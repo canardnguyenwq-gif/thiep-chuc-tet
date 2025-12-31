@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Chúc Tết 2026</title>
+    <style>
+        body { background-color: #f4f4f4; color: #333; font-family: "Times New Roman", Times, serif; display: flex; justify-content: center; padding: 40px 20px; line-height: 1.6; }
+        .letter-container { background: #fff; max-width: 650px; width: 100%; padding: 50px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border: 1px solid #ddd; min-height: 450px; }
+        .login-box { text-align: center; margin-top: 30px; }
+        .countdown-wrapper { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+        .countdown-item { text-align: center; min-width: 60px; }
+        .count-number { font-size: 28px; font-weight: bold; display: block; border-bottom: 2px solid #333; padding-bottom: 5px; }
+        .count-label { font-size: 12px; text-transform: uppercase; color: #888; margin-top: 5px; display: block; }
+        input { border: none; border-bottom: 1px solid #333; padding: 10px; width: 220px; outline: none; text-align: center; font-family: inherit; font-size: 16px; margin-bottom: 20px; background: transparent; }
+        button { background: none; border: 1px solid #333; padding: 10px 30px; cursor: pointer; font-family: inherit; font-size: 16px; transition: 0.3s; }
+        button:hover { background: #333; color: #fff; }
+        #message { display: none; animation: fadeIn 1.5s; }
+        .content { white-space: pre-line; text-align: justify; font-size: 18px; margin-bottom: 40px; }
+        .signature { text-align: right; font-weight: bold; margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="letter-container">
+        <div id="login-section" class="login-box">
+            <h3 style="font-weight: normal; margin-bottom: 25px;">Thư sẽ mở sau:</h3>
+            <div class="countdown-wrapper">
+                <div class="countdown-item">
+                    <span class="count-number" id="days">00</span>
+                    <span class="count-label">Ngày</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="count-number" id="hours">00</span>
+                    <span class="count-label">Giờ</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="count-number" id="minutes">00</span>
+                    <span class="count-label">Phút</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="count-number" id="seconds">00</span>
+                    <span class="count-label">Giây</span>
+                </div>
+            </div>
+            <p>Vui lòng nhập mã để nhận thư</p>
+            <input type="text" id="passInput" placeholder="..." spellcheck="false">
+            <br>
+            <button id="btnOpen" onclick="checkPass()">Đọc thư</button>
+        </div>
+
+        <div id="message">
+            <div style="text-align: right; font-style: italic; margin-bottom: 30px;">Ngày 01 tháng 01 năm 2026</div>
+            <div class="content" id="content"></div>
+            <div class="signature" id="signature"></div>
+        </div>
+    </div>
+
+    <script>
+        // ĐÃ SỬA: Đưa về đúng mốc năm 2026
+        const targetDate = new Date("Jan 1, 2025 00:00:00").getTime();
+        let isLock = true;
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                isLock = true;
+            } else {
+                clearInterval(timer);
+                document.querySelector(".countdown-wrapper").innerHTML = "<h2 style='color: #27ae60;'>Thư đã sẵn sàng!</h2>";
+                isLock = false;
+            }
+        }, 1000);
+
+        const data = {
+            // ĐÃ SỬA: Tất cả key đều để chữ IN HOA để khớp với hàm checkPass
+            "CANAMAIIUMELIN": {
+                msg: `Gửi Xưn Hìn, người chị iu dấu của Phưn Khjm ( aka Ca Nà Nguyễn )
+                
+Bước sang năm 2026, hành trình của chị - em mình cũng tăng thêm 1 số như số năm vậy. Trong năm 2025 vừa qua, bản thân em biết ơn chị rất nhiều về những thứ dành cho đứa em “ ruột thừa “ này của chị. Những lúc em stress vì ôn thi TN, chờ đợi kết quả hay những giây phút tự trách bản thân mình vì đã làm không tốt việc gì đó, chính chị đã vỗ về và an ủi em rất nhiều...`,
+                from: "Canard Nguyễn ( Phương Khiêm )"
+            },
+            "PUKAMAIIUBEHAN": {
+                msg: `Gửi Ngọc Hân, người bạn iu dấu của Phương Khiêm ( aka Puka )
+                
+Xin chào bé Hăn của Puka, hy vọng lúc em đọc được những dòng này em đang hạnh phúc bên người thân, bạn bè, gia đình. 
+Kết thúc năm 2025 với nhiều biến động cho lứa K7, mỗi người đều đã có cho mình một con đường khác nhau đi đến ước mơ của riêng mình, 2 ta cũng thế. Cảm ơn em vì đã không bỏ cuộc, cảm ơn vì đã luôn cố gắng để đạt được ước mơ của bản thân, đây là lúc để nhìn lại và biết ơn bản thân về nhiều thứ. Puka biết ơn rất nhiều vì Hân đã luôn đồng hành với a trong suốt 3 năm cấp 3 dưới mái trường thpt GR, cảm ơn những lúc mà ta dành cho nhau sự yêu thương, dành cho nhau sự chân thành, cũng như sự động viên lẫn nhau trong giai đoạn ôn thi khắc nghiệt ấy, nó trân quý và đáng nhớ vô cùng. Dường như mọi thứ chỉ mới hôm qua, ngoảnh lại dường như bóng dáng ta vẫn hiện hữu tại căn phòng 12X3 ấy, từ lúc ta chưa quen nhau cho đến những tiếng gọi quen thuộc, cười nói, đi chơi cùng nhau, mọi thứ vẫn luôn hiện hữu trong tâm trí. Biết ơn em rất nhiều vì đã làm bạn của nhau, và hy vọng mãi là như thế. Mong em trong năm mới này, học được cách buông bỏ những thứ làm mình đau, yêu bản thân nhiều hơn, không khóc vì những người không xứng đáng, cũng như hi vọng em gặp được người yêu bản thân em thật lòng, và những điều khác tốt đẹp. Chúc em năm mới sẽ luôn học tập thật giỏi, siêng năng hơn và thành công đúng như ước muốn bản thân, mãi iu Ngọc Hân của Puka…`,
+                from: "Puka ( Phương Khiêm )"
+            },
+            "NPKMAIIUBEHAN": {
+                msg: `Gửi Cao Hân, người bạn, người em iu quý của Phương Khiêm ( Aka Ca nà, NPK ,… )
+                
+Kết thúc một năm với nhiều sự thay đổi, mấy đứa đều có cho mình những con đường riêng biệt để theo đuổi ước mơ của chính mình. Đầu tiên cho 2 xin chúc mừng vì sự nỗ lực, không buông bỏ của mấy đứa trong thời gian vừa qua, hay đúng hơn là giai đoạn ôn thi tốt nghiệp đáng nhớ ( cũng đáng quên chứ nhỉ? ). Bản thân 2 biết ơn rất nhiều vì mấy đứa đã luôn đồng hành cùng 2, ủng hộ những quyết định dù cho bồng bột đi chăng nữa, những điều ấy khiến 2 rất quý. 2 cũng hiểu được rằng cuộc sống mới cũng khó thích nghi cho những đứa trẻ mới lớn như chúng ta, 2 chỉ mong mấy đứa dũng cảm, tự tin đối mặt và thích nghi với nó.
+                
+Năm mới, 2 chúc bé Hân vẫn luôn hạnh phúc với mọi điều trong cuộc sống, tự tin vững bước trên hành trình sắp tới, hành trình làm nghề giáo cũng vất vả lắm nên mong e luôn giữ sức khỏe nhé. Mong e sớm gặp những người bạn mới, những người có thể thay mặt để vỗ về, an ủi, ủng hộ em khi 2 không còn thường xuyên ở cạnh em nữa, vẫn rất quý em và sẽ mãi là như vậy. Mong chúng ta vẫn sẽ là bạn bè, mãi mãi vẫn là như vậy, iu rất nhiều. 
+                
+Dẫu có muôn vàn lối đi,
+2 sẽ luôn đồng hành cùng mấy đứa`,
+                from: "Ceo hiệp hội đa cấp tp biển – Ca Nà"
+            },
+            "NPKMAIIUGIAKHIEM": {
+                msg: `Gửi Gia Khiêm, người bạn iu dấu của Phương Khiêm ( aka phân bón clc NPK )
+                
+Kết thúc một năm với nhiều sự thay đổi, mấy đứa đều có cho mình những con đường riêng biệt để theo đuổi ước mơ của chính mình. Đầu tiên cho 2 xin chúc mừng vì sự nỗ lực, không buông bỏ của mấy đứa trong thời gian vừa qua, hay đúng hơn là giai đoạn ôn thi tốt nghiệp đáng nhớ ( cũng đáng quên chứ nhỉ? ). Bản thân 2 biết ơn rất nhiều vì mấy đứa đã luôn đồng hành cùng 2, ủng hộ những quyết định dù cho bồng bột đi chăng nữa, những điều ấy khiến 2 rất quý. 2 cũng hiểu được rằng cuộc sống mới cũng khó thích nghi cho những đứa trẻ mới lớn như chúng ta, 2 chỉ mong mấy đứa dũng cảm, tự tin đối mặt và thích nghi với nó.
+                
+Năm mới, tui không mong gì ngoài việc bạn học cách chăm sóc bản thân mình nhiều hơn, hạnh phúc với cuộc sống hiện tại, cố gắng và nỗ lực với ước mơ của chính bản thân mình, mong những người bạn mới của ní sẽ luôn yêu thương, vui vẻ một cách thật lòng, chân thành nhất. Bên cạnh đó, thật lòng xin lỗi bạn vì một vài giai đoạn tự dưng bơ bạn và ngắt kết nối lẫn nhau, cũng chỉ vì những hiểu lầm và sự duy diễn của tui, xin lỗi nhiều lắm luôn. Mong dù sau này như nào, ta vẫn là bạn bè, vẫn gọi nhau những tiếng gọi thân thương ấy, mãi iu. 
+                
+Dẫu có muôn vàn lối đi,
+2 sẽ luôn đồng hành cùng mấy đứa`,
+                from: "Ceo hiệp hội đa cấp tp biển – Ca Nà"
+            },
+            "PKMAIIUBANTHIEN": {
+                msg: `Gửi Thiện, người bạn cùng bàn của Phương Khiêm,
+                
+Bước sang năm mới, tui không mong gì ngoài việc bạn hãy luôn vững bước với ước mơ của mình, tự tin tiếp bước dù cho như thế nào đi chăng nữa, mong cho cuộc sống sẽ dịu dàng hơn đối với bạn, yêu thương bạn nhiều hơn. Chúc cho một năm mới bình an, hi vọng chúng ta của những năm sau vẫn như thế, vẫn luôn quan tâm và chăm sóc lẫn nhau, vẫn là bạn bè và sẽ luôn là như thế.`,
+                from: "Phương Khiêm"
+            },
+            "PKMAIIUHUYNHVY": {
+                msg: `Gửi bé Huỳnh Vy, bé iu của 2 Khiêm,
+                
+Một năm vừa qua, 2 cảm ơn Vy rất nhiều vì những lúc đồng hành cùng 2, trò chuyện với nhau hay tâm sự những ý định của cuộc sống lẫn nhau, 2 biết ơn rất nhiều lắm luôn ấy. Năm mới này, 2 chúc em học giỏi hơn nè, vững bước theo đuổi ước mơ của bản thân, yêu thương bản thân mình nhiều hơn, và nhiều điều hơn thế nữa. Mong 2 ta vẫn mãi là bạn bè, và sẽ mãi là như thế, quý em nhiều lắm.`,
+                from: "Phương Khiêm"
+            },
+            "PKMAIIUPHUONGTHAO": {
+                msg: `Gửi Phương Thảo, người em gái ruột thừa ( aka tổ trưởng ) của Phương Khiêm,
+                
+Cảm ơn bé Thỏ rất nhiều vì đã luôn bên cạnh Phương Khiêm, cùng nhau trò chuyện, vui đùa hay cổ vũ nhau trong giai đoạn ôn thi tốt nghiệp, 2 biết ơn vì điều đó rất nhiều luôn. Năm mới, chúc bé Thỏ ngày càng chăm học hơn, hạnh phúc hơn, vững bước với ước mơ của bản thân mình, và nhiều điều tốt đẹp khác. Mong ta vẫn mãi như thế này, vẫn là bạn bè với nhau và sẽ luôn là như thế nha.`,
+                from: "Phương Khiêm ( Dịt )"
+            },
+            "ANHTHUONGBEHAN": {
+                msg: `Gửi bé Ngọc Hân, vợ iu của Phương Khiêm
+                
+Tuy cả hai mới quen biết với nhau chưa bao lâu, nhưng những khoảnh khắc mà ta đồng hành cùng nhau trong những tháng vừa qua cũng đủ khiến anh thấy trân trọng rất nhiều. Bé là một cô gái dịu dàng, thân thiện và dễ gần với mọi người xung quanh, cảm ơn em vì đã chọn anh làm người đồng hành cùng nhau, dù cho không chung ngành học hay khoa nào cả, anh biết ơn vì điều đó rất nhiều. Năm mới, mong em sẽ ngày càng học giỏi hơn, xinh gái hơn, hạnh phúc với cuộc sống, tự tin theo đuổi ước mơ của bản thân. Hy vọng năm sau, những năm sắp tới, chúng ta vẫn là những người bạn, vẫn là hình ảnh 2 đứa đèo nhau đi ăn trên những con đường quen thuộc, trân quý em nhiều.`,
+                from: "Canard Nguyễn ( Phương Khiêm )"
+            },
+            "ANHTHUONGBEHUYEN": {
+                msg: `Gửi bé Huyền, bé iu của Phương Khiêm
+                
+Tuy mới thân chưa được bao lâu, thế nhưng bản thân a lại quý bé lắm luôn ấy. Cảm ơn bé đã đến bên anh và chọn a làm bạn, làm người đồng hành cùng nhau. Bé là một cô gái mạnh mẽ, dễ thương cũng như thân thiện với mọi người xung quanh. Năm mới này, anh không mong gì ngoài việc em hạnh phúc với cuộc sống, tự tin vững bước với ước mơ, mong em yêu thương bản thân mình nhiều hơn, hạnh phúc với người thương em thật lòng. Hy vọng không chỉ riêng năm sau, kể cả những năm sắp tới, chúng ta vẫn là những người bạn, và sẽ mãi là như thế, trân quý em nhiều.`,
+                from: "Phương Khiêm"
+            },
+            "ANHTHUONGBELINH": {
+                msg: `Gửi bé Linh, cục dàng của Phương Khiêm
+                
+Tuy mới thân thiết gần đây không lâu, bản thân anh lại quý bé rất nhiều. Biết ơn rất nhiều vì đã coi anh là người bạn, người đồng hành hay cảm ơn bé vì đã trân trọng, yêu thương anh. Bé là một cô gái năng nổ, nhiệt huyết, dễ gần. Năm mới này, anh mong cho bản thân em hạnh phúc, yêu đời, tự tin với ước mơ của bản thân, được nhiều người yêu quý. Hy vọng 2 ta vẫn luôn là bạn bè, và sẽ mãi là như thế trong nhiều năm sau, trân quý em rất nhiều.`,
+                from: "Phương Khiêm"
+            }
+        };
+
+        function checkPass() {
+            if (isLock) {
+                alert(" Chờ đúng giờ hẵn mở nè bạn ơi 🧧");
+                return;
+            }
+            const pass = document.getElementById("passInput").value.toUpperCase().trim();
+            const result = data[pass];
+            if (result) {
+                document.getElementById("login-section").style.display = "none";
+                document.getElementById("content").innerText = result.msg;
+                document.getElementById("signature").innerText = "Ký tên: " + result.from;
+                document.getElementById("message").style.display = "block";
+            } else {
+                alert("Mã thư không đúng, vui lòng kiểm tra lại.");
+            }
+        }
+    </script>
+</body>
+</html>
